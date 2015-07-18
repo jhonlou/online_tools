@@ -1,16 +1,18 @@
-<% content_for :title, "Md5 encrypt" %>
-<p>Please input md5 string :</p>
+<% content_for :title, "Md5 加密工具" %>
+<p>请输入需要MD5加密的字符串:</p>
 <p><textarea id ="input-box" cols="80" rows="20"></textarea></p>
 
 
-<div>Result will be here : <span id="output-label" class="mark"></span></div>
+<div>Result will be here : <pre id="output-label" class="mark"></pre></div>
 <script type="text/javascript">
+
+
+
     function trans()
     {
-        $('#input-box').val();
-        $.post('/md5',{str:$('#input-box').val()},function(d){
-            $('#output-label').text(d.result)
-        });
+       var s = $('#input-box').val();
+
+        $('#output-label').html(md5(s));
 
     }
     trans();

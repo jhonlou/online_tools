@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   #   resources :products
 
   resources :md5
+  resources :unicode
+  resources :base64
+  resources :bmi
 
   # Example resource route with options:
   #   resources :products do

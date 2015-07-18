@@ -1,0 +1,41 @@
+<% content_for :title, "Unicode 编码/解码器" %>
+<p>请输入需要Unicode<mark>解码</mark>的字符串 :</p>
+<p><textarea id ="input-box-encoded" cols="80" rows="10"></textarea></p>
+<p>请输入需要Unicode<mark>编码</mark>的字符串 :</p>
+<p><textarea id ="input-box-not-encoded" cols="80" rows="10"></textarea></p>
+
+<script type="text/javascript">
+
+  var iptEncoded = $('#input-box-encoded');
+  var iptNotEncoded = $('#input-box-not-encoded');
+
+
+    function encode()
+    {
+        var s = iptNotEncoded.val();
+        console.log(s);
+        iptEncoded.val(encodeURIComponent(s));
+
+
+    }
+
+    function decode()
+    {
+        var s = iptEncoded.val();
+        console.log(s);
+        iptNotEncoded.val(decodeURIComponent(s));
+
+    }
+    encode();
+    iptNotEncoded.keyup(function(e){
+
+        encode();
+    });
+
+    iptEncoded.keyup(function(e){
+
+        decode();
+    });
+
+
+</script>

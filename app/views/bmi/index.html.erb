@@ -1,0 +1,35 @@
+<% content_for :title, "bmi 计算器" %>
+
+<form role="form" method="post" onsubmit="return false;" id="submitForm">
+  <fieldset>
+    <form>
+      <fieldset>
+        <legend>请输入身体数据:</legend>
+        <p>很高: <input type="text" name="height"  id="cm"/> cm</p>
+        <p>体重: <input type="text" name="weight" id="kg" /> kg</p>
+        <p class="help-block">不适用人群：1. 未满18岁 2. 是运动员  3. 正在做重量训练 4. 怀孕或哺乳中 5. 身体虚弱或久坐不动的老人。</p>
+      </fieldset>
+    </form>
+    </fieldset>
+  </form>
+
+<div>Result will be here : <pre id="output-label" class="mark"></pre></div>
+<script type="text/javascript">
+    function calc()
+    {
+
+        if($('#cm').val() && $('#kg').val())
+        {
+            $.post('/bmi',$('#submitForm').serialize(),function(d){
+                $('#output-label').text(d.result)
+            });
+
+        }
+
+    }
+    calc();
+  $('form input').keyup(function(e){
+
+      calc();
+  });
+</script>
