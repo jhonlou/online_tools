@@ -42,10 +42,12 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
+group :assets do
+  gem "therubyracer"
+  gem "less-rails"
+  gem "twitter-bootstrap-rails"
+  gem 'twitter-bootswatch-rails'
+  gem 'twitter-bootswatch-rails-helpers'
+end
 
-gem "therubyracer"
-gem "less-rails"
-gem "twitter-bootstrap-rails"
-gem 'twitter-bootswatch-rails'
-gem 'twitter-bootswatch-rails-helpers'
 
