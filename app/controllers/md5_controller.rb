@@ -1,5 +1,5 @@
 
-class Md5sController < ApplicationController
+class Md5Controller < ApplicationController
 
 
   def index

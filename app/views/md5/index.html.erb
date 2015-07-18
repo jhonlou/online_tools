@@ -8,7 +8,7 @@
     function trans()
     {
         $('#input-box').val();
-        $.post('/md5s',{str:$('#input-box').val()},function(d){
+        $.post('/md5',{str:$('#input-box').val()},function(d){
             $('#output-label').text(d.result)
         });
 
