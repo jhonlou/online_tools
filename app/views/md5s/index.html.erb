@@ -1,0 +1,21 @@
+<% content_for :title, "Md5 encrypt" %>
+<p>Please input md5 string :</p>
+<p><textarea id ="input-box" cols="80" rows="20"></textarea></p>
+
+
+<div>Result will be here : <span id="output-label" class="mark"></span></div>
+<script type="text/javascript">
+    function trans()
+    {
+        $('#input-box').val();
+        $.post('/md5s',{str:$('#input-box').val()},function(d){
+            $('#output-label').text(d.result)
+        });
+
+    }
+    trans();
+  $('#input-box').keyup(function(e){
+
+        trans();
+  });
+</script>
