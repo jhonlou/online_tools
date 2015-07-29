@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :unicode
   resources :base64
   resources :bmi
+  resources :password
 
   # Example resource route with options:
   #   resources :products do
