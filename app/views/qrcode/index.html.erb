@@ -1,0 +1,29 @@
+<% content_for :title, "二维码生成" %>
+<p>请输入需要生成二维码的字符串:</p>
+<p><textarea id ="input-box" cols="80" rows="20" placeholder="http://"></textarea></p>
+
+
+<div>Result will be here : <div id="output-label" class="mark"></div></div>
+<script type="text/javascript">
+
+
+
+    function trans()
+    {
+       var s = $('#input-box').val();
+
+       $('#output-label').html($('<img />').attr('src','/qrcode?t='+ s));
+
+
+    }
+
+    if( $('#input-box').val().length >0)
+    {
+        trans();
+    }
+
+   $('#input-box').keyup(function(e){
+
+        trans();
+  });
+</script>
