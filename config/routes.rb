@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   resources :base64
   resources :bmi
   resources :password
+  resources :qrcode
 
   # Example resource route with options:
   #   resources :products do
