@@ -8,5 +8,6 @@
 ###[base64](http://tools.luaxlou.com/base64)
 ###[复杂密码生成](http://tools.luaxlou.com/password)
 ###[二维码生成](http://tools.luaxlou.com/qrcode)
+###[crontab周期生成](http://tools.luaxlou.com/crontab)
 ##健康
 ###[bmi](http://tools.luaxlou.com/bmi)
