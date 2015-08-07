@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   resources :bmi
   resources :password
   resources :qrcode
+  resources :crontab
 
   # Example resource route with options:
   #   resources :products do

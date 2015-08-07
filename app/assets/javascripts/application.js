@@ -16,3 +16,5 @@
 //= require turbolinks
 //= require base64.min
 //= require md5.min
+//= require jqCron
+//= require jqCron.cn

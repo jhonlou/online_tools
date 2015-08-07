@@ -1,0 +1,49 @@
+<% content_for :title, "Linux crontab 周期生成工具" %>
+<p>
+  <input id="input-box" value="30 16 * * *" />
+</p>
+
+
+
+<p>
+  每<input id="input-box1" value="10" size="4"/>分钟
+
+</p>
+
+<p>
+  <span id="output-box1" class="mark"></span>
+</p>
+
+<script type="text/javascript">
+
+
+        $('#input-box').jqCron({
+            enabled_minute: false,
+            multiple_dom: true,
+            multiple_month: true,
+            multiple_mins: true,
+            multiple_dow: true,
+            multiple_time_hours: true,
+            multiple_time_minutes: true,
+            default_period: 'week',
+            default_value: '15 10-12 * * 1-5',
+            no_reset_button: false,
+            lang: 'cn'
+        });
+
+        $('#input-box1').keyup(function(){
+            trans();
+        });
+
+        trans();
+
+        function trans()
+        {
+            var n = parseInt($('#input-box1').val())
+
+            $('#output-box1').html('*/'+n+' * * * *');
+
+        }
+
+
+</script>
