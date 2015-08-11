@@ -1,7 +1,8 @@
 <% content_for :title, "复杂密码生成" %>
 
 <pre id="password"></pre>
-<input type="button" value="换一个"  onclick="gen();"/>
+<input type="button" value="换一个"  onclick="gen(true);"/>
+<input type="button" value="不要特殊字符"  onclick="gen(false);"/>
 <script type="text/javascript">
 
 
@@ -27,11 +28,11 @@
     }
 
 
-    function gen()
+    function gen(special)
     {
-        $('#password').html(password(32,true));
+        $('#password').html(password(32,special));
     }
 
-        gen();
+        gen(true);
 
 </script>
