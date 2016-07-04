@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   #   resources :products
 
   resources :md5
+  resources :md5crack
   resources :unicode
   resources :base64
   resources :bmi

@@ -1,23 +1,92 @@
 <% content_for :title, "Md5 加密工具" %>
 <p>请输入需要MD5加密的字符串:</p>
-<p><textarea id ="input-box" cols="80" rows="20"></textarea></p>
+<p><textarea id="input-box" cols="80" rows="20"></textarea></p>
 
 
-<div>Result will be here : <pre id="output-label" class="mark"></pre></div>
+<div>Result will be here :
+  <pre id="output-label" class="mark"></pre>
+</div>
+
+<p>请输入需要破解的MD5密文:</p>
+<p><input id="input-box1" size="32" maxlength="32"/> <input type="button" id="btn" value="破解"/></p>
+
+<div>Result will be here :
+  <pre id="output-label1" class="mark"></pre>
+</div>
+
+
 <script type="text/javascript">
 
 
-
-    function trans()
-    {
-       var s = $('#input-box').val();
+    function trans() {
+        var s = $('#input-box').val();
 
         $('#output-label').html(md5(s));
 
     }
     trans();
-  $('#input-box').keyup(function(e){
+    $('#input-box').keyup(function (e) {
 
         trans();
-  });
+    });
+
+
+    $('#btn').click(function (e) {
+
+        disableBtn(true);
+
+        var s = $('#input-box1').val();
+
+        if(s.length !=16 && s.length!=32 )
+        {
+            alert('需要破解的密文长度不对,应该是16-32位');
+            disableBtn(false);
+            return;
+        }
+
+        if(s.search(/[^0-9a-fA-f]/)>0)
+        {
+            alert('md5密文格式不合法,请检查');
+            disableBtn(false);
+            return;
+        }
+
+        $.ajax({
+
+            url:'/md5crack',
+
+        data:{md5:s}
+
+        ,success:function(d){
+            $('#output-label1').text(d.result)
+                window.setTimeout(function(){
+                    disableBtn(false);
+                },2000);
+
+        },
+            complete:function(){
+
+                window.setTimeout(function(){
+                    disableBtn(false);
+                },1000);
+
+            },
+            type:'post'
+            ,dataType:'json'});
+
+
+    });
+
+        function disableBtn(flag)
+        {
+            $('#btn').attr('disabled',flag);
+
+            if(flag)
+            {
+                $('#btn').val('破解中...')
+            }else
+            {
+                $('#btn').val('破解')
+            }
+        }
 </script>
