@@ -21,7 +21,11 @@
     function trans() {
         var s = $('#input-box').val();
 
-        $('#output-label').html(md5(s));
+        c = md5(s);
+
+        $('#output-label').html(c);
+
+        $('#input-box1').val(c);
 
     }
     trans();
