@@ -27,6 +27,9 @@ class Md5crackController < ApplicationController
      result =  cracker.crack md5 ,'number_1_to_6'  if !result #super dinger
 
 
+     result =  cracker.crack md5 ,'words'  if !result #super dinger
+
+
 
      result = 'password is tooooo strong!' if !result
    end
