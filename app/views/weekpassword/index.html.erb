@@ -1,0 +1,69 @@
+<% content_for :title, "弱密码检查工具" %>
+
+<p>请输入要检查的密码:</p>
+<p><input id="input-box1" size="40" maxlength="32" placeholder="123456"/>
+   <input type="button" id="btn" value="检查"/></p>
+
+<div>Result will be here :
+  <pre id="output-label1" class="mark"></pre>
+</div>
+
+
+<script type="text/javascript">
+
+
+
+
+    $('#btn').click(function (e) {
+            $('#output-label1').val('')
+        disableBtn(true);
+
+        var s = $('#input-box1').val();
+
+        if(!s )
+        {
+            $('#output-label1').text('空密码属于弱密码的范畴');
+            disableBtn(false);
+            return;
+        }
+
+
+        $.ajax({
+
+            url:'/weekpassword',
+
+        data:{password:s}
+
+        ,success:function(d){
+            $('#output-label1').text(d.result)
+                window.setTimeout(function(){
+                    disableBtn(false);
+                },2000);
+
+        },
+            complete:function(){
+
+                window.setTimeout(function(){
+                    disableBtn(false);
+                },1000);
+
+            },
+            type:'post'
+            ,dataType:'json'});
+
+
+    });
+
+        function disableBtn(flag)
+        {
+            $('#btn').attr('disabled',flag);
+
+            if(flag)
+            {
+                $('#btn').val('检查中...')
+            }else
+            {
+                $('#btn').val('检查')
+            }
+        }
+</script>
