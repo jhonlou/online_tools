@@ -1,0 +1,2 @@
+module WeekpasswordHelper
+end
