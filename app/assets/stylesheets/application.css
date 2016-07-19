@@ -15,5 +15,7 @@
  *= require bootstrap_and_overrides
  *= require jqCron
  */
-
-
+body {
+	background-image: url(sea.jpg); 
+	background-size:cover; 
+}
